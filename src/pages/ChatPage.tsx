@@ -99,6 +99,8 @@ const ChatPage = () => {
           </div>
         )}
       </div>
+      </div>
+      <BottomNav />
     </div>
   );
 };
