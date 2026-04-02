@@ -32,7 +32,7 @@ const LandingPage = () => {
             <a href="#about" className="hover:text-foreground transition-colors">About</a>
           </div>
           <Button
-            onClick={() => navigate("/chat")}
+            onClick={() => navigate("/home")}
             className="mokho-gradient text-primary-foreground border-0 hover:opacity-90 transition-opacity"
           >
             Open Chat
@@ -56,7 +56,7 @@ const LandingPage = () => {
             <div className="mt-8 flex flex-wrap gap-4">
               <Button
                 size="lg"
-                onClick={() => navigate("/chat")}
+                onClick={() => navigate("/home")}
                 className="mokho-gradient text-primary-foreground border-0 hover:opacity-90 transition-opacity mokho-glow text-base px-8"
               >
                 Start Chatting <ArrowRight className="ml-2 w-4 h-4" />
