@@ -1,9 +1,10 @@
-import { MessageCircle, Shield, Zap, Users, Video, Lock, ArrowRight } from "lucide-react";
+import { MessageCircle, Shield, Zap, Users, Video, Lock, ArrowRight, Wifi } from "lucide-react";
 import heroImage from "@/assets/hero-illustration.png";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const features = [
+  { icon: Wifi, title: "Free Mode — 35 MB", desc: "Get 35 MB free data daily to view videos, statuses, and chat — no data plan needed!", highlight: true },
   { icon: Zap, title: "Lightning Fast", desc: "Messages delivered instantly with zero lag." },
   { icon: Shield, title: "End-to-End Encrypted", desc: "Your conversations stay private, always." },
   { icon: Users, title: "Group Chats", desc: "Create groups with unlimited members." },
@@ -68,7 +69,11 @@ const LandingPage = () => {
                 Learn More
               </Button>
             </div>
-            <div className="mt-10 flex items-center gap-6 text-sm text-muted-foreground">
+            <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-destructive/10 text-destructive font-semibold">
+                <Wifi className="w-4 h-4" />
+                <span>35 MB Free Mode</span>
+              </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-mokho-online" />
                 <span>12K+ Online Now</span>
@@ -106,14 +111,25 @@ const LandingPage = () => {
             {features.map((f, i) => (
               <div
                 key={f.title}
-                className="bg-card rounded-xl p-6 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
+                className={`bg-card rounded-xl p-6 border hover:shadow-lg transition-all duration-300 group ${
+                  (f as any).highlight
+                    ? "border-destructive/40 ring-2 ring-destructive/20 md:col-span-2 lg:col-span-1"
+                    : "border-border hover:border-primary/30"
+                }`}
                 style={{ animationDelay: `${i * 100}ms` }}
               >
-                <div className="w-12 h-12 rounded-lg mokho-gradient flex items-center justify-center mb-4 group-hover:mokho-glow transition-shadow">
+                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:mokho-glow transition-shadow ${
+                  (f as any).highlight ? "bg-destructive" : "mokho-gradient"
+                }`}>
                   <f.icon className="w-6 h-6 text-primary-foreground" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{f.title}</h3>
+                <h3 className={`text-lg font-semibold mb-2 ${(f as any).highlight ? "text-destructive" : "text-foreground"}`}>{f.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+                {(f as any).highlight && (
+                  <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-destructive/10 text-destructive text-xs font-semibold">
+                    <Wifi className="w-3 h-3" /> No Data Plan Required
+                  </div>
+                )}
               </div>
             ))}
           </div>
