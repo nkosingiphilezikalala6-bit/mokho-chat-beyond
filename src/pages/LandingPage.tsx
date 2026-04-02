@@ -1,4 +1,4 @@
-import { MessageCircle, Shield, Zap, Users, Video, Lock, ArrowRight } from "lucide-react";
+import { MessageCircle, Shield, Zap, Users, Video, Lock, ArrowRight, Wifi } from "lucide-react";
 import heroImage from "@/assets/hero-illustration.png";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
