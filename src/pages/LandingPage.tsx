@@ -69,7 +69,11 @@ const LandingPage = () => {
                 Learn More
               </Button>
             </div>
-            <div className="mt-10 flex items-center gap-6 text-sm text-muted-foreground">
+            <div className="mt-10 flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-destructive/10 text-destructive font-semibold">
+                <Wifi className="w-4 h-4" />
+                <span>35 MB Free Mode</span>
+              </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-mokho-online" />
                 <span>12K+ Online Now</span>
