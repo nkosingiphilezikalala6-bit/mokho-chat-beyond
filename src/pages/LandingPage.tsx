@@ -45,7 +45,7 @@ const LandingPage = () => {
           <div className="flex-1 animate-slide-up">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground leading-tight tracking-tight">
               Chat Smarter<br />
-              <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'var(--mokho-gradient)' }}>
+              <span className="text-destructive">
                 with MOKHO
               </span>
             </h1>
@@ -96,7 +96,7 @@ const LandingPage = () => {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Why Choose <span className="bg-clip-text text-transparent" style={{ backgroundImage: 'var(--mokho-gradient)' }}>MOKHO</span>?
+              Why Choose <span className="text-destructive">MOKHO</span>?
             </h2>
             <p className="mt-4 text-muted-foreground max-w-md mx-auto">
               Built from the ground up with features that matter.
