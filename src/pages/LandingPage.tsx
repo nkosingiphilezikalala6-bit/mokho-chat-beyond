@@ -107,14 +107,25 @@ const LandingPage = () => {
             {features.map((f, i) => (
               <div
                 key={f.title}
-                className="bg-card rounded-xl p-6 border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
+                className={`bg-card rounded-xl p-6 border hover:shadow-lg transition-all duration-300 group ${
+                  (f as any).highlight
+                    ? "border-destructive/40 ring-2 ring-destructive/20 md:col-span-2 lg:col-span-1"
+                    : "border-border hover:border-primary/30"
+                }`}
                 style={{ animationDelay: `${i * 100}ms` }}
               >
-                <div className="w-12 h-12 rounded-lg mokho-gradient flex items-center justify-center mb-4 group-hover:mokho-glow transition-shadow">
+                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:mokho-glow transition-shadow ${
+                  (f as any).highlight ? "bg-destructive" : "mokho-gradient"
+                }`}>
                   <f.icon className="w-6 h-6 text-primary-foreground" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">{f.title}</h3>
+                <h3 className={`text-lg font-semibold mb-2 ${(f as any).highlight ? "text-destructive" : "text-foreground"}`}>{f.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{f.desc}</p>
+                {(f as any).highlight && (
+                  <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-destructive/10 text-destructive text-xs font-semibold">
+                    <Wifi className="w-3 h-3" /> No Data Plan Required
+                  </div>
+                )}
               </div>
             ))}
           </div>
