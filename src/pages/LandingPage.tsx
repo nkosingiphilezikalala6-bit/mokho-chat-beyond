@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const features = [
+  { icon: Wifi, title: "Free Mode — 35 MB", desc: "Get 35 MB free data daily to view videos, statuses, and chat — no data plan needed!", highlight: true },
   { icon: Zap, title: "Lightning Fast", desc: "Messages delivered instantly with zero lag." },
   { icon: Shield, title: "End-to-End Encrypted", desc: "Your conversations stay private, always." },
   { icon: Users, title: "Group Chats", desc: "Create groups with unlimited members." },
