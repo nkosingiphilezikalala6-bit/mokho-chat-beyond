@@ -2,6 +2,7 @@ import { useState } from "react";
 import ChatSidebar from "@/components/chat/ChatSidebar";
 import ChatWindow from "@/components/chat/ChatWindow";
 import { MessageCircle } from "lucide-react";
+import BottomNav from "@/components/layout/BottomNav";
 
 export interface Contact {
   id: string;
