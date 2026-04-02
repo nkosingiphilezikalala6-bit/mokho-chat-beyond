@@ -68,37 +68,38 @@ const ChatPage = () => {
   };
 
   return (
-    <div className="h-screen flex bg-background">
-      {/* Sidebar */}
-      <div className={`${sidebarOpen ? 'w-80' : 'w-0'} transition-all duration-300 overflow-hidden border-r border-border flex-shrink-0`}>
-        <ChatSidebar
-          contacts={mockContacts}
-          selectedId={selectedContact?.id || null}
-          onSelect={(c) => {
-            setSelectedContact(c);
-            if (window.innerWidth < 768) setSidebarOpen(false);
-          }}
-        />
-      </div>
-
-      {/* Chat Area */}
-      <div className="flex-1 flex flex-col min-w-0">
-        {selectedContact ? (
-          <ChatWindow
-            contact={selectedContact}
-            messages={messages[selectedContact.id] || []}
-            onSend={handleSend}
-            onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+    <div className="h-screen flex flex-col bg-background">
+      <div className="flex-1 flex min-h-0">
+        {/* Sidebar */}
+        <div className={`${sidebarOpen ? 'w-80' : 'w-0'} transition-all duration-300 overflow-hidden border-r border-border flex-shrink-0`}>
+          <ChatSidebar
+            contacts={mockContacts}
+            selectedId={selectedContact?.id || null}
+            onSelect={(c) => {
+              setSelectedContact(c);
+              if (window.innerWidth < 768) setSidebarOpen(false);
+            }}
           />
-        ) : (
-          <div className="flex-1 flex flex-col items-center justify-center text-muted-foreground gap-4">
-            <div className="w-16 h-16 rounded-2xl mokho-gradient flex items-center justify-center mokho-glow">
-              <MessageCircle className="w-8 h-8 text-primary-foreground" />
+        </div>
+
+        {/* Chat Area */}
+        <div className="flex-1 flex flex-col min-w-0">
+          {selectedContact ? (
+            <ChatWindow
+              contact={selectedContact}
+              messages={messages[selectedContact.id] || []}
+              onSend={handleSend}
+              onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+            />
+          ) : (
+            <div className="flex-1 flex flex-col items-center justify-center text-muted-foreground gap-4">
+              <div className="w-16 h-16 rounded-2xl bg-destructive flex items-center justify-center">
+                <MessageCircle className="w-8 h-8 text-destructive-foreground" />
+              </div>
+              <p className="text-lg font-medium">Select a conversation to start chatting</p>
             </div>
-            <p className="text-lg font-medium">Select a conversation to start chatting</p>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
       </div>
       <BottomNav />
     </div>
