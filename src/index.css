@@ -6,75 +6,75 @@
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 210 40% 8%;
+    --background: 0 10% 98%;
+    --foreground: 0 20% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 40% 8%;
+    --card-foreground: 0 20% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 40% 8%;
+    --popover-foreground: 0 20% 8%;
 
-    --primary: 187 85% 43%;
+    --primary: 0 84% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 20% 95%;
-    --secondary-foreground: 210 40% 8%;
+    --secondary: 0 15% 94%;
+    --secondary-foreground: 0 20% 8%;
 
-    --muted: 210 15% 93%;
-    --muted-foreground: 210 10% 50%;
+    --muted: 0 10% 93%;
+    --muted-foreground: 0 10% 45%;
 
-    --accent: 187 85% 43%;
+    --accent: 0 84% 50%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 84% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 90%;
-    --input: 210 20% 90%;
-    --ring: 187 85% 43%;
+    --border: 0 15% 90%;
+    --input: 0 15% 90%;
+    --ring: 0 84% 50%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 210 30% 6%;
-    --sidebar-foreground: 210 10% 85%;
-    --sidebar-primary: 187 85% 43%;
+    --sidebar-background: 0 20% 6%;
+    --sidebar-foreground: 0 10% 85%;
+    --sidebar-primary: 0 84% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 25% 12%;
-    --sidebar-accent-foreground: 210 10% 85%;
-    --sidebar-border: 210 25% 15%;
-    --sidebar-ring: 187 85% 43%;
+    --sidebar-accent: 0 20% 12%;
+    --sidebar-accent-foreground: 0 10% 85%;
+    --sidebar-border: 0 20% 15%;
+    --sidebar-ring: 0 84% 50%;
 
     /* Custom MOKHO tokens */
-    --mokho-gradient: linear-gradient(135deg, hsl(187 85% 43%), hsl(210 80% 50%));
-    --mokho-gradient-hover: linear-gradient(135deg, hsl(187 85% 38%), hsl(210 80% 45%));
-    --mokho-glow: 0 0 30px hsl(187 85% 43% / 0.3);
-    --mokho-chat-sent: 187 85% 43%;
-    --mokho-chat-received: 210 15% 93%;
+    --mokho-gradient: linear-gradient(135deg, hsl(0 84% 50%), hsl(0 70% 40%));
+    --mokho-gradient-hover: linear-gradient(135deg, hsl(0 84% 45%), hsl(0 70% 35%));
+    --mokho-glow: 0 0 30px hsl(0 84% 50% / 0.3);
+    --mokho-chat-sent: 0 84% 50%;
+    --mokho-chat-received: 0 10% 93%;
     --mokho-online: 145 70% 50%;
-    --mokho-surface: 210 25% 10%;
+    --mokho-surface: 0 20% 10%;
   }
 
   .dark {
-    --background: 210 30% 6%;
-    --foreground: 210 10% 95%;
-    --card: 210 25% 10%;
-    --card-foreground: 210 10% 95%;
-    --popover: 210 25% 10%;
-    --popover-foreground: 210 10% 95%;
-    --primary: 187 85% 50%;
-    --primary-foreground: 210 30% 6%;
-    --secondary: 210 25% 15%;
-    --secondary-foreground: 210 10% 90%;
-    --muted: 210 25% 15%;
-    --muted-foreground: 210 10% 55%;
-    --accent: 210 25% 15%;
-    --accent-foreground: 210 10% 90%;
+    --background: 0 20% 6%;
+    --foreground: 0 10% 95%;
+    --card: 0 20% 10%;
+    --card-foreground: 0 10% 95%;
+    --popover: 0 20% 10%;
+    --popover-foreground: 0 10% 95%;
+    --primary: 0 84% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 20% 15%;
+    --secondary-foreground: 0 10% 90%;
+    --muted: 0 20% 15%;
+    --muted-foreground: 0 10% 55%;
+    --accent: 0 20% 15%;
+    --accent-foreground: 0 10% 90%;
     --destructive: 0 62% 30%;
-    --destructive-foreground: 210 10% 95%;
-    --border: 210 25% 18%;
-    --input: 210 25% 18%;
-    --ring: 187 85% 50%;
+    --destructive-foreground: 0 10% 95%;
+    --border: 0 20% 18%;
+    --input: 0 20% 18%;
+    --ring: 0 84% 55%;
   }
 }
 
