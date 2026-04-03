@@ -49,9 +49,8 @@ const mockMessages: Record<string, Message[]> = {
 };
 
 const ChatPage = () => {
-  const [selectedContact, setSelectedContact] = useState<Contact | null>(mockContacts[0]);
+  const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
   const [messages, setMessages] = useState(mockMessages);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const handleSend = (text: string) => {
     if (!selectedContact) return;
@@ -70,26 +69,26 @@ const ChatPage = () => {
   return (
     <div className="h-screen flex flex-col bg-background">
       <div className="flex-1 flex min-h-0">
+        {/* Mobile: show sidebar when no contact selected, show chat when contact selected */}
+        {/* Desktop: always show sidebar + chat side by side */}
+        
         {/* Sidebar */}
-        <div className={`${sidebarOpen ? 'w-80' : 'w-0'} transition-all duration-300 overflow-hidden border-r border-border flex-shrink-0`}>
+        <div className={`${selectedContact ? 'hidden md:block' : 'w-full md:w-80'} md:w-80 border-r border-border flex-shrink-0`}>
           <ChatSidebar
             contacts={mockContacts}
             selectedId={selectedContact?.id || null}
-            onSelect={(c) => {
-              setSelectedContact(c);
-              if (window.innerWidth < 768) setSidebarOpen(false);
-            }}
+            onSelect={(c) => setSelectedContact(c)}
           />
         </div>
 
         {/* Chat Area */}
-        <div className="flex-1 flex flex-col min-w-0">
+        <div className={`${selectedContact ? 'flex' : 'hidden md:flex'} flex-1 flex-col min-w-0`}>
           {selectedContact ? (
             <ChatWindow
               contact={selectedContact}
               messages={messages[selectedContact.id] || []}
               onSend={handleSend}
-              onToggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+              onBack={() => setSelectedContact(null)}
             />
           ) : (
             <div className="flex-1 flex flex-col items-center justify-center text-muted-foreground gap-4">

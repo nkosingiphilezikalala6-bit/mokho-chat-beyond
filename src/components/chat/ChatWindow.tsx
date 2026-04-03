@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { Send, Paperclip, Smile, Phone, Video, MoreVertical, Menu } from "lucide-react";
+import { Send, Paperclip, Smile, Phone, Video, MoreVertical, ArrowLeft } from "lucide-react";
 import type { Contact, Message } from "@/pages/ChatPage";
 
 interface ChatWindowProps {
   contact: Contact;
   messages: Message[];
   onSend: (text: string) => void;
-  onToggleSidebar: () => void;
+  onBack: () => void;
 }
 
-const ChatWindow = ({ contact, messages, onSend, onToggleSidebar }: ChatWindowProps) => {
+const ChatWindow = ({ contact, messages, onSend, onBack }: ChatWindowProps) => {
   const [input, setInput] = useState("");
 
   const handleSend = () => {
@@ -23,14 +23,11 @@ const ChatWindow = ({ contact, messages, onSend, onToggleSidebar }: ChatWindowPr
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-card">
         <div className="flex items-center gap-3">
-          <button onClick={onToggleSidebar} className="p-1.5 rounded-lg hover:bg-secondary transition-colors md:hidden">
-            <Menu className="w-5 h-5 text-muted-foreground" />
-          </button>
-          <button onClick={onToggleSidebar} className="p-1.5 rounded-lg hover:bg-secondary transition-colors hidden md:block">
-            <Menu className="w-5 h-5 text-muted-foreground" />
+          <button onClick={onBack} className="p-1.5 rounded-lg hover:bg-secondary transition-colors">
+            <ArrowLeft className="w-5 h-5 text-foreground" />
           </button>
           <div className="relative">
-            <div className="w-10 h-10 rounded-full mokho-gradient flex items-center justify-center text-primary-foreground text-sm font-semibold">
+            <div className="w-10 h-10 rounded-full bg-destructive flex items-center justify-center text-destructive-foreground text-sm font-semibold">
               {contact.avatar}
             </div>
             {contact.online && (
@@ -46,10 +43,10 @@ const ChatWindow = ({ contact, messages, onSend, onToggleSidebar }: ChatWindowPr
         </div>
         <div className="flex items-center gap-1">
           <button className="p-2 rounded-lg hover:bg-secondary transition-colors">
-            <Phone className="w-4 h-4 text-muted-foreground" />
+            <Phone className="w-4 h-4 text-destructive" />
           </button>
           <button className="p-2 rounded-lg hover:bg-secondary transition-colors">
-            <Video className="w-4 h-4 text-muted-foreground" />
+            <Video className="w-4 h-4 text-destructive" />
           </button>
           <button className="p-2 rounded-lg hover:bg-secondary transition-colors">
             <MoreVertical className="w-4 h-4 text-muted-foreground" />
@@ -70,7 +67,7 @@ const ChatWindow = ({ contact, messages, onSend, onToggleSidebar }: ChatWindowPr
               }`}
             >
               <p className="text-sm leading-relaxed">{msg.text}</p>
-              <p className={`text-[10px] mt-1 ${msg.sent ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
+              <p className={`text-[10px] mt-1 ${msg.sent ? "text-destructive-foreground/70" : "text-muted-foreground"}`}>
                 {msg.time}
               </p>
             </div>
@@ -104,12 +101,12 @@ const ChatWindow = ({ contact, messages, onSend, onToggleSidebar }: ChatWindowPr
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
-            className="flex-1 px-4 py-2.5 rounded-xl bg-secondary text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30 transition-shadow"
+            className="flex-1 px-4 py-2.5 rounded-xl bg-secondary text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-destructive/30 transition-shadow"
           />
           <button
             onClick={handleSend}
             disabled={!input.trim()}
-            className="p-2.5 rounded-xl mokho-gradient text-primary-foreground disabled:opacity-40 hover:opacity-90 transition-opacity mokho-glow"
+            className="p-2.5 rounded-xl bg-destructive text-destructive-foreground disabled:opacity-40 hover:bg-destructive/90 transition-opacity"
           >
             <Send className="w-5 h-5" />
           </button>
