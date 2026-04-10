@@ -11,6 +11,7 @@ import ChatPage from "./pages/ChatPage";
 import FriendsPage from "./pages/FriendsPage";
 import NotificationsPage from "./pages/NotificationsPage";
 import MenuPage from "./pages/MenuPage";
+import ConfessionsPage from "./pages/ConfessionsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/chat" element={<ProtectedRoute><ChatPage /></ProtectedRoute>} />
             <Route path="/friends" element={<ProtectedRoute><FriendsPage /></ProtectedRoute>} />
             <Route path="/notifications" element={<ProtectedRoute><NotificationsPage /></ProtectedRoute>} />
+            <Route path="/confessions" element={<ProtectedRoute><ConfessionsPage /></ProtectedRoute>} />
             <Route path="/menu" element={<ProtectedRoute><MenuPage /></ProtectedRoute>} />
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -1,11 +1,11 @@
-import { Home, MessageCircle, Bell, Menu, Users } from "lucide-react";
+import { Home, MessageCircle, Bell, Menu, Users, Eye } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const tabs = [
   { icon: Home, label: "Home", path: "/home" },
   { icon: Users, label: "Friends", path: "/friends" },
+  { icon: Eye, label: "Confess", path: "/confessions" },
   { icon: MessageCircle, label: "Chat", path: "/chat" },
-  { icon: Bell, label: "Alerts", path: "/notifications" },
   { icon: Menu, label: "Menu", path: "/menu" },
 ];
 
